@@ -1,9 +1,9 @@
 object DataModule4: TDataModule4
   OldCreateOrder = False
-  Left = 189
-  Top = 137
-  Height = 252
-  Width = 543
+  Left = 308
+  Top = 180
+  Height = 352
+  Width = 611
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
     AutoEncodeStrings = False
@@ -47,8 +47,8 @@ object DataModule4: TDataModule4
   end
   object dssupplier: TDataSource
     DataSet = Zsupplier
-    Left = 352
-    Top = 16
+    Left = 184
+    Top = 144
   end
   object Zsupplier: TZQuery
     Connection = ZConnection1
@@ -56,13 +56,13 @@ object DataModule4: TDataModule4
     SQL.Strings = (
       'select * from supplier')
     Params = <>
-    Left = 288
-    Top = 16
+    Left = 112
+    Top = 144
   end
   object dscustomer: TDataSource
     DataSet = Zcustomer
-    Left = 352
-    Top = 80
+    Left = 184
+    Top = 208
   end
   object Zcustomer: TZQuery
     Connection = ZConnection1
@@ -70,7 +70,48 @@ object DataModule4: TDataModule4
     SQL.Strings = (
       'select * from customer')
     Params = <>
-    Left = 288
+    Left = 112
+    Top = 208
+  end
+  object dslogin: TDataSource
+    DataSet = Zlogin
+    Left = 320
+    Top = 16
+  end
+  object Zlogin: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from user')
+    Params = <>
+    Left = 256
+    Top = 16
+  end
+  object Zuser: TZQuery
+    Connection = ZConnection1
+    Active = True
+    SQL.Strings = (
+      'select * from user')
+    Params = <>
+    Left = 256
     Top = 80
+  end
+  object dsuser: TDataSource
+    DataSet = Zuser
+    Left = 320
+    Top = 80
+  end
+  object Zbarang: TZQuery
+    Connection = ZConnection1
+    SQL.Strings = (
+      'select * from barang')
+    Params = <>
+    Left = 256
+    Top = 144
+  end
+  object dsbarang: TDataSource
+    DataSet = Zbarang
+    Left = 320
+    Top = 144
   end
 end

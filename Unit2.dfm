@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 230
-  Top = 176
+  Left = 655
+  Top = 451
   Width = 465
   Height = 204
   Caption = 'LOGIN'
@@ -13,17 +13,30 @@ object Form2: TForm2
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 40
+    Top = 24
+    Width = 54
+    Height = 13
+    Caption = 'USERNAME'
+  end
+  object Label2: TLabel
+    Left = 40
+    Top = 64
+    Width = 57
+    Height = 13
+    Caption = 'PASSWORD'
+  end
   object eUser: TEdit
     Left = 120
     Top = 24
     Width = 209
     Height = 21
     TabOrder = 0
-    Text = 'USERNAME'
   end
   object Button1: TButton
     Left = 120
-    Top = 96
+    Top = 104
     Width = 75
     Height = 25
     Caption = 'LOGIN'
@@ -32,7 +45,7 @@ object Form2: TForm2
   end
   object Button2: TButton
     Left = 256
-    Top = 96
+    Top = 104
     Width = 75
     Height = 25
     Caption = 'CLOSE'
@@ -45,6 +58,5 @@ object Form2: TForm2
     Width = 209
     Height = 21
     TabOrder = 3
-    Text = 'PASSWORD'
   end
 end

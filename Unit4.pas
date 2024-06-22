@@ -17,6 +17,12 @@ type
     Zsupplier: TZQuery;
     dscustomer: TDataSource;
     Zcustomer: TZQuery;
+    dslogin: TDataSource;
+    Zlogin: TZQuery;
+    Zuser: TZQuery;
+    dsuser: TDataSource;
+    Zbarang: TZQuery;
+    dsbarang: TDataSource;
   private
     { Private declarations }
   public

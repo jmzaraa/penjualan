@@ -1,97 +1,158 @@
 object Form7: TForm7
-  Left = 126
-  Top = 183
-  Width = 933
-  Height = 478
+  Left = 225
+  Top = 261
+  Width = 782
+  Height = 449
   Caption = 'CUSTOMER'
-  Color = clBtnFace
+  Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label2: TLabel
-    Left = 464
-    Top = 160
-    Width = 86
-    Height = 13
-    Caption = 'MASUKKAN NAMA'
+    Left = 360
+    Top = 240
+    Width = 71
+    Height = 15
+    Caption = 'CARI DATA'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label3: TLabel
-    Left = 32
-    Top = 64
-    Width = 29
-    Height = 13
+    Left = 8
+    Top = 80
+    Width = 39
+    Height = 15
     Caption = 'NAMA'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label4: TLabel
-    Left = 32
-    Top = 104
-    Width = 74
-    Height = 13
+    Left = 8
+    Top = 136
+    Width = 103
+    Height = 15
     Caption = 'JENIS KELAMIN'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label5: TLabel
-    Left = 32
-    Top = 144
-    Width = 40
-    Height = 13
+    Left = 8
+    Top = 192
+    Width = 54
+    Height = 15
     Caption = 'ALAMAT'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label6: TLabel
-    Left = 32
-    Top = 184
-    Width = 23
-    Height = 13
+    Left = 8
+    Top = 248
+    Width = 34
+    Height = 15
     Caption = 'TELP'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label7: TLabel
-    Left = 32
-    Top = 224
-    Width = 30
-    Height = 13
+    Left = 8
+    Top = 304
+    Width = 41
+    Height = 15
     Caption = 'EMAIL'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object Label8: TLabel
-    Left = 32
+    Left = 8
     Top = 24
-    Width = 17
-    Height = 13
+    Width = 24
+    Height = 15
     Caption = 'NIK'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
   end
   object bInsert: TButton
-    Left = 120
-    Top = 266
+    Left = 272
+    Top = 362
     Width = 75
-    Height = 25
-    Caption = 'INSERT'
+    Height = 35
+    Caption = 'TAMBAH'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     OnClick = bInsertClick
   end
   object bUpdate: TButton
-    Left = 240
-    Top = 266
+    Left = 360
+    Top = 362
     Width = 75
-    Height = 25
-    Caption = 'UPDATE'
+    Height = 35
+    Caption = 'UBAH'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
     OnClick = bUpdateClick
   end
   object bDelete: TButton
-    Left = 368
-    Top = 266
+    Left = 448
+    Top = 362
     Width = 75
-    Height = 25
-    Caption = 'DELETE'
+    Height = 35
+    Caption = 'HAPUS'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
     OnClick = bDeleteClick
   end
   object DBGrid1: TDBGrid
-    Left = 461
-    Top = 24
+    Left = 357
+    Top = 96
     Width = 393
     Height = 120
     DataSource = DataModule4.dscustomer
@@ -104,60 +165,83 @@ object Form7: TForm7
     OnCellClick = DBGrid1CellClick
   end
   object eCari: TEdit
-    Left = 565
-    Top = 160
+    Left = 461
+    Top = 232
     Width = 289
-    Height = 21
+    Height = 33
     TabOrder = 4
+    OnChange = eCariChange
   end
-  object bCari: TButton
-    Left = 779
-    Top = 192
+  object bBatal: TButton
+    Left = 539
+    Top = 360
     Width = 75
-    Height = 25
-    Caption = 'CARI'
+    Height = 35
+    Caption = 'BATAL'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 5
+    OnClick = bBatalClick
   end
   object eNik: TEdit
-    Left = 120
-    Top = 24
+    Left = 8
+    Top = 40
     Width = 321
     Height = 21
     TabOrder = 6
   end
   object eNama: TEdit
-    Left = 120
-    Top = 64
+    Left = 8
+    Top = 96
     Width = 321
     Height = 21
     TabOrder = 7
   end
   object eJk: TEdit
-    Left = 120
-    Top = 104
+    Left = 8
+    Top = 152
     Width = 321
     Height = 21
     TabOrder = 8
   end
   object eAlamat: TEdit
-    Left = 120
-    Top = 144
+    Left = 8
+    Top = 208
     Width = 321
     Height = 21
     TabOrder = 9
   end
   object eTelp: TEdit
-    Left = 120
-    Top = 184
+    Left = 8
+    Top = 264
     Width = 321
     Height = 21
     TabOrder = 10
   end
   object eEmail: TEdit
-    Left = 120
-    Top = 224
+    Left = 8
+    Top = 320
     Width = 321
     Height = 21
     TabOrder = 11
+  end
+  object bBaru: TButton
+    Left = 184
+    Top = 360
+    Width = 75
+    Height = 35
+    Caption = 'BARU'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+    OnClick = bBaruClick
   end
 end
