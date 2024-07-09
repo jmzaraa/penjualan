@@ -28,6 +28,11 @@ type
     eTelp: TEdit;
     eEmail: TEdit;
     bBaru: TButton;
+    Label1: TLabel;
+    cmbMember: TComboBox;
+    Label10: TLabel;
+    Label9: TLabel;
+    bCetak: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -39,6 +44,9 @@ type
     function editFull: Boolean;
     procedure FormShow(Sender: TObject);
     procedure bBaruClick(Sender: TObject);
+    procedure cmbMemberChange(Sender: TObject);
+    procedure bCetakClick(Sender: TObject);
+    procedure cmbMemberDropDown(Sender: TObject);
 
   private
     { Private declarations }
@@ -53,7 +61,7 @@ var
 implementation
 
 uses
-  Unit4;
+  Unit4, Unit10;
 
 {$R *.dfm}
 
@@ -64,7 +72,8 @@ begin
             (eJk.Text <> '') and
             (eAlamat.Text <> '') and
             (eTelp.Text <> '') and
-            (eEmail.Text <> '');
+            (eEmail.Text <> '') and
+            (cmbMember.Text <> '') ;
 end;
 
 procedure TForm7.bersih;
@@ -75,6 +84,7 @@ begin
     eAlamat.Clear;
     eTelp.Clear;
     eEmail.Clear;
+    cmbMember.Clear;
 end;
 
 procedure TForm7.posisiawal;
@@ -92,6 +102,8 @@ begin
   eAlamat.Enabled := False;
   eTelp.Enabled := False;
   eEmail.Enabled := False;
+  cmbMember.Enabled := False;
+  Label10.Caption := 'DISKON:';
 end;
 
 procedure TForm7.bInsertClick(Sender: TObject);
@@ -106,12 +118,13 @@ begin
     DataModule4.Zcustomer.Locate('alamat_cust', eAlamat.Text,[]) or
     DataModule4.Zcustomer.Locate('telp_cust', eTelp.Text,[]) or
     DataModule4.Zcustomer.Locate('email_cust', eEmail.Text,[]) then
+//    DataModule4.Zcustomer.Locate('member', cmbMember.Text,[]) then
     begin
       ShowMessage('Data Sudah Ada Dalam Sistem!');
     end else
     begin
 DataModule4.Zcustomer.SQL.Clear;
-DataModule4.Zcustomer.SQL.Add('insert into customer values(null, "'+eNik.Text+'", "'+eNama.Text+'", "'+eJk.Text+'", "'+eAlamat.Text+'", "'+eTelp.Text+'", "'+eEmail.Text+'") ');
+DataModule4.Zcustomer.SQL.Add('insert into customer values(null, "'+eNik.Text+'", "'+eNama.Text+'", "'+eJk.Text+'", "'+eAlamat.Text+'", "'+eTelp.Text+'", "'+eEmail.Text+'", "'+cmbMember.Text+'") ');
 DataModule4.Zcustomer.ExecSQL;
 
 DataModule4.Zcustomer.SQL.Clear;
@@ -133,7 +146,8 @@ begin
     (DataModule4.Zcustomer.Fields[3].AsString = eJk.Text) and
     (DataModule4.Zcustomer.Fields[4].AsString = eAlamat.Text) and
     (DataModule4.Zcustomer.Fields[5].AsString = eTelp.Text) and
-    (DataModule4.Zcustomer.Fields[6].AsString = eEmail.Text) then
+    (DataModule4.Zcustomer.Fields[6].AsString = eEmail.Text) and
+    (DataModule4.Zcustomer.Fields[7].AsString = cmbMember.Text) then
     begin
       ShowMessage('Data Sudah Ada Dalam Sistem!');
     end else
@@ -166,6 +180,11 @@ DataModule4.Zcustomer.ExecSQL;
 DataModule4.Zcustomer.SQL.Clear;
 if eEmail.Text <> '' then
 DataModule4.Zcustomer.SQL.Add('update customer set email_cust = "'+eEmail.Text+'" where id_customer = "'+a+'" ');
+DataModule4.Zcustomer.ExecSQL;
+
+DataModule4.Zcustomer.SQL.Clear;
+if cmbMember.Text <> '' then
+DataModule4.Zcustomer.SQL.Add('update customer set member = "'+cmbMember.Text+'" where id_customer = "'+a+'" ');
 DataModule4.Zcustomer.ExecSQL;
 
 DataModule4.Zcustomer.SQL.Clear;
@@ -202,6 +221,7 @@ eJk.Text := DataModule4.Zcustomer.Fields[3].AsString;
 eAlamat.Text := DataModule4.Zcustomer.Fields[4].AsString;
 eTelp.Text := DataModule4.Zcustomer.Fields[5].AsString;
 eEmail.Text := DataModule4.Zcustomer.Fields[6].AsString;
+cmbMember.Text := DataModule4.Zcustomer.Fields[7].AsString;
 
 eNik.Enabled := True;
 eNama.Enabled := True;
@@ -209,6 +229,7 @@ eJk.Enabled := True;
 eAlamat.Enabled := True;
 eTelp.Enabled := True;
 eEmail.Enabled := True;
+cmbMember.Enabled := True;
 
 bBaru.Enabled := False;
 bInsert.Enabled := False;
@@ -252,6 +273,27 @@ eJk.Enabled := True;
 eAlamat.Enabled := True;
 eTelp.Enabled := True;
 eEmail.Enabled := True;
+cmbMember.Enabled := True;
+end;
+
+procedure TForm7.cmbMemberChange(Sender: TObject);
+begin
+  if cmbMember.Text = 'YA' then
+    Label10.Caption := 'DISKON: 10%'
+  else if cmbMember.Text = 'TIDAK' then
+    Label10.Caption := 'DISKON: 5%';
+end;
+
+procedure TForm7.bCetakClick(Sender: TObject);
+begin
+form10.frxReport_customer.ShowReport();
+end;
+
+procedure TForm7.cmbMemberDropDown(Sender: TObject);
+begin
+cmbMember.Items.Clear;
+cmbMember.Items.Add('YA');
+cmbMember.Items.Add('TIDAK');
 end;
 
 end.

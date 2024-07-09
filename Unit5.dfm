@@ -1,8 +1,8 @@
 object Form5: TForm5
-  Left = 484
-  Top = 154
+  Left = 523
+  Top = 201
   Width = 475
-  Height = 432
+  Height = 451
   Caption = 'SATUAN'
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -109,7 +109,7 @@ object Form5: TForm5
     Left = 128
     Top = 336
     Width = 313
-    Height = 33
+    Height = 21
     Color = clTeal
     TabOrder = 4
     OnChange = eCariChange
@@ -164,5 +164,14 @@ object Form5: TForm5
     ParentFont = False
     TabOrder = 8
     OnClick = bBatalClick
+  end
+  object bPrint: TButton
+    Left = 16
+    Top = 376
+    Width = 425
+    Height = 25
+    Caption = 'CETAK LAPORAN'
+    TabOrder = 9
+    OnClick = bPrintClick
   end
 end

@@ -2,7 +2,7 @@ object Form3: TForm3
   Left = 289
   Top = 142
   Width = 479
-  Height = 436
+  Height = 473
   Caption = 'KATAGORI'
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -123,7 +123,7 @@ object Form3: TForm3
     Left = 120
     Top = 336
     Width = 321
-    Height = 33
+    Height = 21
     Color = clTeal
     TabOrder = 5
     OnChange = eCariChange
@@ -164,5 +164,14 @@ object Form3: TForm3
     ParentFont = False
     TabOrder = 8
     OnClick = bBaruClick
+  end
+  object bPrint: TButton
+    Left = 16
+    Top = 368
+    Width = 425
+    Height = 33
+    Caption = 'CETAK LAPORAN'
+    TabOrder = 9
+    OnClick = bPrintClick
   end
 end

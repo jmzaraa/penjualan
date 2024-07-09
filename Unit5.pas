@@ -20,6 +20,7 @@ type
     Label3: TLabel;
     bBaru: TButton;
     bBatal: TButton;
+    bPrint: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure bBatalClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure eCariChange(Sender: TObject);
+    procedure bPrintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +45,7 @@ var
 implementation
 
 uses
-  Unit4;
+  Unit4, Unit10;
 
 {$R *.dfm}
 
@@ -183,6 +185,11 @@ with DataModule4.Zsatuan do
     SQL.Add('select * from satuan where nama_satuan like "%'+eCari.Text+'%" ');
     Open;
   end;
+end;
+
+procedure TForm5.bPrintClick(Sender: TObject);
+begin
+Form10.frxReport_satuan.ShowReport();
 end;
 
 end.

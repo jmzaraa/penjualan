@@ -20,6 +20,7 @@ type
     eDeskripsi: TEdit;
     bBatal: TButton;
     bBaru: TButton;
+    bPrint: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -30,6 +31,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure bBaruClick(Sender: TObject);
     procedure eCariChange(Sender: TObject);
+    procedure bPrintClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,7 +45,7 @@ var
 implementation
 
 uses
-  Unit4;
+  Unit4, Unit10;
 
 {$R *.dfm}
 
@@ -186,6 +188,11 @@ begin
     SQL.Add('select * from katagori where nama_katagori like "%'+eCari.Text+'%" ');
     Open;
   end;
+end;
+
+procedure TForm3.bPrintClick(Sender: TObject);
+begin
+form10.frxReport_katagori.ShowReport();
 end;
 
 end.

@@ -1,8 +1,8 @@
 object Form8: TForm8
-  Left = 367
-  Top = 162
-  Width = 835
-  Height = 609
+  Left = 414
+  Top = 369
+  Width = 869
+  Height = 629
   Caption = 'USER'
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object Form8: TForm8
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object NIK: TLabel
@@ -132,7 +133,7 @@ object Form8: TForm8
   end
   object Label10: TLabel
     Left = 368
-    Top = 328
+    Top = 320
     Width = 71
     Height = 15
     Caption = 'CARI DATA'
@@ -211,14 +212,16 @@ object Form8: TForm8
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = DBGrid1CellClick
   end
   object eCari: TEdit
     Left = 456
     Top = 320
     Width = 337
-    Height = 33
+    Height = 21
     Color = clTeal
     TabOrder = 9
+    OnChange = eCariChange
   end
   object bBaru: TButton
     Left = 216
@@ -233,6 +236,7 @@ object Form8: TForm8
     Font.Style = []
     ParentFont = False
     TabOrder = 10
+    OnClick = bBaruClick
   end
   object bInsert: TButton
     Left = 304
@@ -275,6 +279,7 @@ object Form8: TForm8
     Font.Style = []
     ParentFont = False
     TabOrder = 13
+    OnClick = bDeleteClick
   end
   object bBatal: TButton
     Left = 568
@@ -289,6 +294,7 @@ object Form8: TForm8
     Font.Style = []
     ParentFont = False
     TabOrder = 14
+    OnClick = bBatalClick
   end
   object cmbRole: TComboBox
     Left = 16

@@ -103,6 +103,7 @@ object DataModule4: TDataModule4
   end
   object Zbarang: TZQuery
     Connection = ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from barang')
     Params = <>
