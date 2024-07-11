@@ -1,8 +1,8 @@
 object Form9: TForm9
-  Left = 297
-  Top = 76
-  Width = 870
-  Height = 653
+  Left = 347
+  Top = 106
+  Width = 823
+  Height = 618
   Caption = 'BARANG'
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +16,7 @@ object Form9: TForm9
   TextHeight = 13
   object Label1: TLabel
     Left = 376
-    Top = 328
+    Top = 304
     Width = 71
     Height = 15
     Caption = 'CARI DATA'
@@ -181,7 +181,7 @@ object Form9: TForm9
   end
   object DBGrid1: TDBGrid
     Left = 376
-    Top = 192
+    Top = 168
     Width = 401
     Height = 120
     DataSource = DataModule4.dsbarang
@@ -195,7 +195,7 @@ object Form9: TForm9
   end
   object eCari: TEdit
     Left = 464
-    Top = 328
+    Top = 304
     Width = 313
     Height = 21
     Color = clTeal
@@ -224,6 +224,7 @@ object Form9: TForm9
     Height = 21
     ItemHeight = 13
     TabOrder = 8
+    OnDropDown = cmbKatagoriDropDown
   end
   object cmbSatuan: TComboBox
     Left = 24
@@ -232,6 +233,7 @@ object Form9: TForm9
     Height = 21
     ItemHeight = 13
     TabOrder = 9
+    OnDropDown = cmbSatuanDropDown
   end
   object cmbSupplier: TComboBox
     Left = 24
@@ -240,6 +242,7 @@ object Form9: TForm9
     Height = 21
     ItemHeight = 13
     TabOrder = 10
+    OnDropDown = cmbSupplierDropDown
   end
   object cmbUser: TComboBox
     Left = 24
@@ -248,6 +251,7 @@ object Form9: TForm9
     Height = 21
     ItemHeight = 13
     TabOrder = 11
+    OnDropDown = cmbUserDropDown
   end
   object bInsert: TButton
     Left = 288
@@ -262,6 +266,7 @@ object Form9: TForm9
     Font.Style = []
     ParentFont = False
     TabOrder = 12
+    OnClick = bInsertClick
   end
   object bUpdate: TButton
     Left = 376
@@ -276,6 +281,7 @@ object Form9: TForm9
     Font.Style = []
     ParentFont = False
     TabOrder = 13
+    OnClick = bUpdateClick
   end
   object bDelete: TButton
     Left = 464
@@ -306,5 +312,20 @@ object Form9: TForm9
     ParentFont = False
     TabOrder = 15
     OnClick = bBatalClick
+  end
+  object bCetak: TButton
+    Left = 376
+    Top = 344
+    Width = 401
+    Height = 33
+    Caption = 'CETAK DATA'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 16
+    OnClick = bCetakClick
   end
 end

@@ -1,8 +1,8 @@
 object Form8: TForm8
-  Left = 414
-  Top = 369
-  Width = 869
-  Height = 629
+  Left = 154
+  Top = 52
+  Width = 831
+  Height = 615
   Caption = 'USER'
   Color = clMoneyGreen
   Font.Charset = DEFAULT_CHARSET
@@ -133,7 +133,7 @@ object Form8: TForm8
   end
   object Label10: TLabel
     Left = 368
-    Top = 320
+    Top = 296
     Width = 71
     Height = 15
     Caption = 'CARI DATA'
@@ -202,7 +202,7 @@ object Form8: TForm8
   end
   object DBGrid1: TDBGrid
     Left = 368
-    Top = 184
+    Top = 160
     Width = 425
     Height = 120
     DataSource = DataModule4.dsuser
@@ -216,7 +216,7 @@ object Form8: TForm8
   end
   object eCari: TEdit
     Left = 456
-    Top = 320
+    Top = 296
     Width = 337
     Height = 21
     Color = clTeal
@@ -251,6 +251,7 @@ object Form8: TForm8
     Font.Style = []
     ParentFont = False
     TabOrder = 11
+    OnClick = bInsertClick
   end
   object bUpdate: TButton
     Left = 392
@@ -265,6 +266,7 @@ object Form8: TForm8
     Font.Style = []
     ParentFont = False
     TabOrder = 12
+    OnClick = bUpdateClick
   end
   object bDelete: TButton
     Left = 480
@@ -296,13 +298,28 @@ object Form8: TForm8
     TabOrder = 14
     OnClick = bBatalClick
   end
+  object bCetak: TButton
+    Left = 368
+    Top = 336
+    Width = 425
+    Height = 33
+    Caption = 'CETAK DATA'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 15
+    OnClick = bCetakClick
+  end
   object cmbRole: TComboBox
     Left = 16
     Top = 256
     Width = 321
     Height = 21
     ItemHeight = 13
-    TabOrder = 15
-    Text = 'cmbRole'
+    TabOrder = 16
+    OnDropDown = cmbRoleDropDown
   end
 end

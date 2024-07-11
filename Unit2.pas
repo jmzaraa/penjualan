@@ -14,6 +14,7 @@ type
     ePass: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private

@@ -34,6 +34,7 @@ type
     procedure K2Click(Sender: TObject);
     procedure U1Click(Sender: TObject);
     procedure B1Click(Sender: TObject);
+    procedure L3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -62,9 +63,9 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-//mm1.Items[1].Visible := False;
-//mm1.Items[2].Visible := False;
-//mm1.Items[3].Visible := False;
+mm1.Items[1].Visible := False;
+mm1.Items[2].Visible := False;
+mm1.Items[3].Visible := False;
 end;
 
 procedure TForm1.S1Click(Sender: TObject);
@@ -93,4 +94,12 @@ begin
 Form9.Show;
 end;
 
+procedure TForm1.L3Click(Sender: TObject);
+begin
+if MessageDlg('Apakah Anda Yakin Ingin Keluar?', mtWarning, [mbYes, mbNo], 0) = mryes then
+  begin
+  Form1.Close;
+end;
+
+end;
 end.

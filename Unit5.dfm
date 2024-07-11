@@ -165,13 +165,19 @@ object Form5: TForm5
     TabOrder = 8
     OnClick = bBatalClick
   end
-  object bPrint: TButton
-    Left = 16
+  object bCetak: TButton
+    Left = 18
     Top = 376
-    Width = 425
-    Height = 25
-    Caption = 'CETAK LAPORAN'
+    Width = 423
+    Height = 33
+    Caption = 'CETAK DATA'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 9
-    OnClick = bPrintClick
+    OnClick = bCetakClick
   end
 end

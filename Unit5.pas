@@ -20,7 +20,7 @@ type
     Label3: TLabel;
     bBaru: TButton;
     bBatal: TButton;
-    bPrint: TButton;
+    bCetak: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -31,7 +31,7 @@ type
     procedure bBatalClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure eCariChange(Sender: TObject);
-    procedure bPrintClick(Sender: TObject);
+    procedure bCetakClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -187,7 +187,7 @@ with DataModule4.Zsatuan do
   end;
 end;
 
-procedure TForm5.bPrintClick(Sender: TObject);
+procedure TForm5.bCetakClick(Sender: TObject);
 begin
 Form10.frxReport_satuan.ShowReport();
 end;

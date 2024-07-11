@@ -26,6 +26,7 @@ object Form1: TForm1
       end
       object L3: TMenuItem
         Caption = 'LOGOUT'
+        OnClick = L3Click
       end
     end
     object D1: TMenuItem

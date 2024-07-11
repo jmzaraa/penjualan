@@ -33,6 +33,7 @@ type
     bDelete: TButton;
     bBatal: TButton;
     Label10: TLabel;
+    bCetak: TButton;
     cmbRole: TComboBox;
     procedure posisiawal;
     procedure bersih;
@@ -43,6 +44,10 @@ type
     procedure bBatalClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure cmbRoleDropDown(Sender: TObject);
+    procedure bInsertClick(Sender: TObject);
+    procedure bUpdateClick(Sender: TObject);
+    procedure bCetakClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,7 +61,7 @@ var
 implementation
 
 uses
-  Unit4;
+  Unit4, Unit10;
 
 {$R *.dfm}
 
@@ -195,6 +200,118 @@ bInsert.Enabled := False;
 bUpdate.Enabled := True;
 bDelete.Enabled := True;
 bBatal.Enabled := True;
+end;
+
+procedure TForm8.cmbRoleDropDown(Sender: TObject);
+begin
+cmbRole.Items.Add('admin');
+cmbRole.Items.Add('kasir');
+cmbRole.Items.Add('manager');
+end;
+
+procedure TForm8.bInsertClick(Sender: TObject);
+begin
+if not editFull then
+  begin
+    ShowMessage('Data Tidak Boleh Kosong!');
+  end else
+    if DataModule4.Zuser.Locate('NIK_user', eNik.Text,[]) or
+    DataModule4.Zuser.Locate('username', eUsername.Text,[]) or
+    DataModule4.Zuser.Locate('nama_user', eNama.Text,[]) or
+    DataModule4.Zuser.Locate('password', ePass.Text,[]) or
+    DataModule4.Zuser.Locate('email', eEmail.Text,[]) or
+    DataModule4.Zuser.Locate('alamat_user', eAlamat.Text,[]) or
+    DataModule4.Zuser.Locate('telp_user', eTelp.Text,[]) then
+    begin
+      ShowMessage('Data Sudah Ada Dalam Sistem!');
+    end else
+    begin
+eNik.SetFocus;
+DataModule4.Zuser.SQL.Clear;
+DataModule4.Zuser.SQL.Add('insert into user values(null, "'+eNik.Text+'", "'+eUsername.Text+'", "'+eNama.Text+'", "'+ePass.Text+'", "'+cmbRole.Text+'","'+eEmail.Text+'", "'+eAlamat.Text+'", "'+eTelp.Text+'", "'+eStatus.Text+'") ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+DataModule4.Zuser.SQL.Add('select * from user');
+DataModule4.Zuser.Open;
+ShowMessage('Data Berhasil Disimpan!');
+end;
+posisiawal;
+end;
+
+procedure TForm8.bUpdateClick(Sender: TObject);
+begin
+  if not editFull then
+  begin
+    ShowMessage('Data Tidak Boleh Kosong!');
+  end else
+    if (DataModule4.Zuser.Fields[1].AsString = eNik.Text) and
+    (DataModule4.Zuser.Fields[2].AsString = eUsername.Text) and
+    (DataModule4.Zuser.Fields[3].AsString = eNama.Text) and
+    (DataModule4.Zuser.Fields[4].AsString = ePass.Text) and
+    (DataModule4.Zuser.Fields[6].AsString = eEmail.Text) and
+    (DataModule4.Zuser.Fields[7].AsString = eAlamat.Text) and
+    (DataModule4.Zuser.Fields[8].AsString = eTelp.Text) then
+    begin
+      ShowMessage('Data Sudah Ada Dalam Sistem!');
+    end else
+    begin
+DataModule4.Zuser.SQL.Clear;
+if eNik.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set NIK_user = "'+eNik.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eUsername.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set username = "'+eUsername.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eNama.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set nama_user = "'+eNama.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if ePass.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set password = "'+ePass.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if cmbRole.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set role = "'+cmbRole.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eEmail.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set email = "'+eEmail.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eAlamat.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set alamat_user = "'+eAlamat.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eTelp.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set telp_user = "'+eTelp.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+if eStatus.Text <> '' then
+DataModule4.Zuser.SQL.Add('update user set is_active = "'+eStatus.Text+'" where id_user = "'+a+'" ');
+DataModule4.Zuser.ExecSQL;
+
+DataModule4.Zuser.SQL.Clear;
+DataModule4.Zuser.SQL.Add('select * from user');
+DataModule4.Zuser.Open;
+ShowMessage('Data Berhasil Diubah!');
+end;
+posisiawal;
+end;
+
+procedure TForm8.bCetakClick(Sender: TObject);
+begin
+form10.frxReport_user.ShowReport();
 end;
 
 end.

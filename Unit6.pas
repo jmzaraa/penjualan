@@ -34,6 +34,7 @@ type
     eTelp: TEdit;
     bBaru: TButton;
     bBatal: TButton;
+    bCetak: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -45,6 +46,7 @@ type
     procedure bBatalClick(Sender: TObject);
     procedure eCariChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure bCetakClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -58,7 +60,7 @@ var
 implementation
 
 uses
-  Unit4;
+  Unit4, Unit10;
 
 {$R *.dfm}
 
@@ -298,6 +300,11 @@ end;
 procedure TForm6.FormShow(Sender: TObject);
 begin
 posisiawal;
+end;
+
+procedure TForm6.bCetakClick(Sender: TObject);
+begin
+form10.frxReport_supplier.ShowReport();
 end;
 
 end.

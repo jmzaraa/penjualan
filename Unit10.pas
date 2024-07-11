@@ -14,6 +14,12 @@ type
     frxDBDataset_satuan: TfrxDBDataset;
     frxReport_customer: TfrxReport;
     frxDBDataset_customer: TfrxDBDataset;
+    frxReport_supplier: TfrxReport;
+    frxDBDataset_supplier: TfrxDBDataset;
+    frxReport_user: TfrxReport;
+    frxDBDataset_user: TfrxDBDataset;
+    frxReport_barang: TfrxReport;
+    frxDBDataset_barang: TfrxDBDataset;
   private
     { Private declarations }
   public

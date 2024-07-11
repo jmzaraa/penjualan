@@ -20,7 +20,7 @@ type
     eDeskripsi: TEdit;
     bBatal: TButton;
     bBaru: TButton;
-    bPrint: TButton;
+    bCetak: TButton;
     procedure bInsertClick(Sender: TObject);
     procedure bUpdateClick(Sender: TObject);
     procedure bDeleteClick(Sender: TObject);
@@ -31,7 +31,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure bBaruClick(Sender: TObject);
     procedure eCariChange(Sender: TObject);
-    procedure bPrintClick(Sender: TObject);
+    procedure bCetakClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -190,7 +190,7 @@ begin
   end;
 end;
 
-procedure TForm3.bPrintClick(Sender: TObject);
+procedure TForm3.bCetakClick(Sender: TObject);
 begin
 form10.frxReport_katagori.ShowReport();
 end;

@@ -1,6 +1,6 @@
 object Form6: TForm6
-  Left = 316
-  Top = 45
+  Left = 349
+  Top = 51
   Width = 836
   Height = 632
   Caption = 'SUPPLIER'
@@ -29,7 +29,7 @@ object Form6: TForm6
   end
   object Label2: TLabel
     Left = 368
-    Top = 344
+    Top = 312
     Width = 71
     Height = 15
     Caption = 'CARI DATA'
@@ -198,7 +198,7 @@ object Form6: TForm6
   end
   object DBGrid1: TDBGrid
     Left = 368
-    Top = 208
+    Top = 176
     Width = 425
     Height = 113
     DataSource = DataModule4.dssupplier
@@ -263,9 +263,9 @@ object Form6: TForm6
   end
   object eCari: TEdit
     Left = 456
-    Top = 336
+    Top = 304
     Width = 337
-    Height = 33
+    Height = 21
     Color = clTeal
     TabOrder = 5
     OnChange = eCariChange
@@ -355,5 +355,20 @@ object Form6: TForm6
     ParentFont = False
     TabOrder = 15
     OnClick = bBatalClick
+  end
+  object bCetak: TButton
+    Left = 368
+    Top = 344
+    Width = 425
+    Height = 33
+    Caption = 'CETAK DATA'
+    Font.Charset = OEM_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Terminal'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 16
+    OnClick = bCetakClick
   end
 end
